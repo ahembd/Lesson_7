@@ -2,7 +2,7 @@
 Feature: log into Target account
   # Enter feature description here
   #
-Scenario:
+Scenario: Log in
   Given Open target.com
   When Click Sign In
   And From side navigation, click sign in

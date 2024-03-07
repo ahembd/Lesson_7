@@ -8,8 +8,8 @@ class MainPage(Page):
     SEARCH_FIELD = (By.ID, 'search')
     SEARCH_BTN = (By.CSS_SELECTOR, "[data-test='@web/Search/SearchButton']")
 
-    def open_main(self):
-        self.open('https://www.target.com/')
+    def open_main(context):
+        context.driver.get('https://www.target.com/')
 
     def search(self, product):
         self.input_text(product, *self.SEARCH_FIELD)

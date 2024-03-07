@@ -6,10 +6,11 @@ from pages.main_page import MainPage
 from pages.search_results_page import SearchResultsPage
 
 
-def __init__(self, driver):
-    self.page = Page(driver)
-    self.cart_page = CartPage(driver)
-    self.circle_page = CirclePage(driver)
-    self.header = Header(driver)
-    self.main_page = MainPage(driver)
-    self.search_results_page = SearchResultsPage(driver)
+class Application:
+    def __init__(context, driver):
+        context.page = Page(driver)
+        context.cart_page = CartPage(driver)
+        context.circle_page = CirclePage(driver)
+        context.header = Header(driver)
+        context.main_page = MainPage(driver)
+        context.search_results_page = SearchResultsPage(driver)
