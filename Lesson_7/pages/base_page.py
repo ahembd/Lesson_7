@@ -8,10 +8,12 @@ class Page:
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 15)
 
-    def open(self, url):
-        self.driver.get(url)
+    def open(context, url):
+        context.driver.get(url)
 
     def find_element(self, *locator):
+        print('in base_page.find_element')
+        print('locator= ' + str(locator))
         return self.driver.find_element(*locator)
 
     def find_elements(self, *locator):
@@ -25,7 +27,7 @@ class Page:
 
     def wait_element_visible(self, *locator):
         self.wait.until(
-            EC.visibility_of_element_located(locator),
+            EC.visibility_of_element_located(*locator),
             message=f'Element by {locator} is not visible'
         )
 
@@ -36,6 +38,7 @@ class Page:
         )
 
     def wait_element_clickable(self, *locator):
+        print('locator == ' + str(locator))
         self.wait.until(
             EC.element_to_be_clickable(locator),
             message=f'Element by {locator} is not clickable'
